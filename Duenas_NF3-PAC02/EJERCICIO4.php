@@ -6,7 +6,9 @@ $db = mysqli_connect('localhost', 'root', 'root') or die('Unable to connect. Che
 mysqli_select_db($db, 'moviesite') or die(mysqli_error($db));
 
 // Determine the current page number
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
+if($_GET['pagina'])
+    $pagina = $_GET['pagina']; //Si hay pagina, lo asigna
+$buskr=$_GET['searchs']; //Palabra a buscar
 $itemsPerPage = 5; // Number of items to display per page
 
 // Calculate the offset for the LIMIT clause
